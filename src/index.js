@@ -1,13 +1,18 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+import { store } from "./redux/store"; // dataları yerleştireceğimiz kaynak
+import { Provider } from "react-redux"; // react-redux bağlantısı
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}> {/* reduxtan gelen veri Providere prop verildi */}
+      <App />
+    </Provider>
   </React.StrictMode>
 );
 
